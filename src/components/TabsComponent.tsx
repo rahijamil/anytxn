@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useInView } from "framer-motion";
 
 const tabItems = [
   {
@@ -69,8 +70,12 @@ const tabCardItems = [
 export default function TabComponent() {
   const [activeTabId, setActiveTabId] = useState<number>(1);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const interval = setInterval(() => {
       setActiveTabId((prevId) => {
         const nextId = prevId < tabCardItems.length ? prevId + 1 : 1;
@@ -87,7 +92,7 @@ export default function TabComponent() {
     }, 3000); // Scroll every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isInView]);
 
   const handleTabClick = (id: number) => {
     setActiveTabId(id);
@@ -101,13 +106,13 @@ export default function TabComponent() {
   };
 
   return (
-    <div>
+    <div ref={sectionRef}>
       {/* Tabs */}
       <div className="flex-wrap space-x-4 justify-center items-center lg:flex hidden py-[32px]">
         {tabItems.map((tabItem) => (
           <button
             key={tabItem.id}
-            className={`lg:text-body-p0 text-res-body-p0 !font-semibold xl:px-[48px] md:px-[38px] px-[28px] py-[6px]  xl:py-[8px] rounded-[200px] transition-colors duration-300 text-blue-main ${
+            className={`lg:text-body-p0 text-res-body-p0 !font-semibold xl:px-[48px] md:px-[38px] px-[28px] py-[6px] xl:py-[8px] rounded-[200px] transition-colors duration-300 text-blue-main ${
               activeTabId == tabItem.id
                 ? "bg-blue-highlight"
                 : "hover:bg-[#F5FAFF]"
@@ -144,7 +149,7 @@ export default function TabComponent() {
                   src={card.image}
                   width="6400"
                   height="4800"
-                  alt="Agile and Adaptable"
+                  alt={card.tabName}
                   className="h-full w-full object-cover rounded-[8px]"
                 />
               </figure>
@@ -169,8 +174,9 @@ export default function TabComponent() {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-4 py-8">
-        {Array.from({ length: 4 }).map((_, index) => (
+      {/* Mobile Dots */}
+      <div className="flex items-center justify-center gap-4 py-8 sm:hidden">
+        {tabItems.map((_, index) => (
           <span
             key={index}
             onClick={() => handleTabClick(index + 1)}

@@ -6,6 +6,7 @@ import HeroImage from "@/components/HeroImage";
 import HeroSVG from "@/components/HeroSVG";
 import TabComponent from "@/components/TabsComponent";
 import Image from "next/image";
+import StatsSection from "./StatsSection";
 
 const companies = [
   {
@@ -558,32 +559,7 @@ export default function Home() {
             TRUSTED BY THE BEST
           </h6>
 
-          <div className="items-center justify-between max-lg:space-y-6 lg:flex xl:mx-28">
-            <div className="flex items-center border-dashed max-lg:justify-between lg:flex-col max-lg:border-b border-blue-highlight max-lg:pb-xs">
-              <h2 className="max-[280px]:text-[40px] text-[64px] lg:text-[96px] font-Montserrat tracking-[-0.02em] font-semibold leading-none bg-gradient-to-b from-blue-main to-[#0057BB] text-transparent bg-clip-text">
-                &gt;<span>20</span>
-              </h2>{" "}
-              <p className="text-right text-[#151D2F] lg:text-center max-lg:text-res-link lg:text-lg lg:mt-[19px]">
-                Years of Experience
-              </p>{" "}
-            </div>
-            <div className="flex items-center border-dashed max-lg:justify-between lg:flex-col max-lg:border-b border-blue-highlight max-lg:pb-xs">
-              <h2 className="max-[280px]:text-[40px] text-[64px] lg:text-[96px] font-Montserrat tracking-[-0.02em] font-semibold leading-none bg-gradient-to-b from-blue-main to-[#0057BB] text-transparent bg-clip-text">
-                <span>40</span>+
-              </h2>{" "}
-              <p className="text-right text-[#151D2F] lg:text-center max-lg:text-res-link lg:text-lg lg:mt-[19px]">
-                Financial Institutions
-              </p>{" "}
-            </div>
-            <div className="flex items-center border-dashed max-lg:justify-between lg:flex-col max-lg:border-b border-blue-highlight max-lg:pb-xs">
-              <h2 className="max-[280px]:text-[40px] text-[64px] lg:text-[96px] font-Montserrat tracking-[-0.02em] font-semibold leading-none bg-gradient-to-b from-blue-main to-[#0057BB] text-transparent bg-clip-text">
-                &gt;<span>200</span>m
-              </h2>{" "}
-              <p className="text-right text-[#151D2F] lg:text-center max-lg:text-res-link lg:text-lg lg:mt-[19px]">
-                Customers Each
-              </p>{" "}
-            </div>
-          </div>
+          <StatsSection />
 
           <div className="mt-xl flex sm:grid grid-cols-3 gap-x-16 gap-y-[34px] lg:grid-cols-5 overflow-x-auto sm:overflow-x-hidden scroll-swiper">
             {companies.map((company) => (

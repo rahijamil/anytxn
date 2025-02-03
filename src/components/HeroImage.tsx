@@ -1,8 +1,14 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const HeroImage = () => {
   return (
-    <div className="hidden lg:block absolute top-0 xl:left-[35%] xl:w-[65%] left-1/2 lg:w-[56%] h-full bg-clip-hero-image pointer-events-none">
+    <motion.div
+      initial={{ x: "20%" }}
+      animate={{ x: 0 }}
+      transition={{ delay: 0.3, duration: 0.5 }}
+      className="hidden lg:block absolute top-0 xl:left-[35%] xl:w-[65%] left-1/2 lg:w-[56%] h-full bg-clip-hero-image pointer-events-none"
+    >
       <figure
         className="h-[115%] w-[115%] object-cover"
         style={{
@@ -16,11 +22,10 @@ const HeroImage = () => {
           width={7952}
           height={5304}
           className="h-full w-full object-cover"
-          sizes="(max-width: 1280px) 55vw, 100vw"
         />
       </figure>
       <div className="gradient-overlay"></div>
-    </div>
+    </motion.div>
   );
 };
 
