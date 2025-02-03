@@ -2,179 +2,20 @@
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import HeroImage from "@/components/HeroImage";
-import HeroSVG from "@/components/HeroSVG";
 import TabComponent from "@/components/TabsComponent";
 import Image from "next/image";
-import StatsSection from "./StatsSection";
-import { motion } from "framer-motion";
-
-const companies = [
-  {
-    id: 1,
-    name: "BANK OF CHENGDE",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/67ef6d224529c5521d5d38b4ac18521f589865d9-603x414.png",
-  },
-  {
-    id: 2,
-    name: "BANK OF CHINA",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/9c57a834d791df3ba5062693e0cf60cc879f46da-2560x768.png",
-  },
-  {
-    id: 3,
-    name: "Bank of Shanghai",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/8f6dbd7e59875cb02e47e9887935c668191af0f1-778x258.png",
-  },
-  {
-    id: 4,
-    name: "CGB",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/c86c67596c1893c78c783bcc323531a7ea723c20-1000x182.png",
-  },
-  {
-    id: 5,
-    name: "CHINA CITIC BANK",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/3ce67f3ece1c1b696d9d6e75f665c31ac155b679-960x540.png",
-  },
-  {
-    id: 6,
-    name: "OneBank",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/b01bae36b9db80dc1f9af2bf3e931bc08267827b-855x292.png",
-  },
-  {
-    id: 7,
-    name: "PING AN BANK",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/f21131d4c2a144139ed50dbacc56af65bad6541f-1599x628.png",
-  },
-  {
-    id: 8,
-    name: "POSTAL SAVINGS BANK OF CHINA",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/d2877eb14e7b59f820bcb49d69363c49e134ee81-1626x250.png",
-  },
-  {
-    id: 9,
-    name: "sea",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/2829e9f6c94501d700b332fab14832b6eb64e6b5-5000x1970.png",
-  },
-  {
-    id: 10,
-    name: "Shandong City Commercial Banks Alliance",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/9764422d5b731f38edd216852c7c77e650647975-500x330.png",
-  },
-  {
-    id: 11,
-    name: "VipFubon Consumer Finanace",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/d96d229024fe964c6cc68d62beb75b126b08d3b5-318x61.svg",
-  },
-  {
-    id: 12,
-    name: "XIAMEN INTERNATIONAL BANK",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/ab9f4a4a11a33031761167b640dda78d89009f1e-724x137.png",
-  },
-  {
-    id: 13,
-    name: "XW",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/8d2528e19c38722cc52dda4d8b6976775c18db29-800x527.png",
-  },
-  {
-    id: 14,
-    name: "SPD BANK",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/ba16ca6efbbe78a1e56ff61bd8befc0f0f93e18a-1200x337.png",
-  },
-  {
-    id: 15,
-    name: "DCS",
-    logo_url:
-      "https://cdn.sanity.io/images/6jywt20u/production/5f4683ef95594b29414088c82c00dddb4c61338b-862x289.png",
-  },
-];
-
-const philosophies = [
-  {
-    id: 1,
-    image_path:
-      "https://cdn.sanity.io/images/6jywt20u/production/28029da89383a59e47420ee46b7e4c364051b45f-50x50.svg?auto=format",
-    title: "Full-suite solutions",
-    description:
-      "Experience the ease of integration across various banking and payment functions with our comprehensive suite of solutions.",
-  },
-  {
-    id: 2,
-    image_path:
-      "https://cdn.sanity.io/images/6jywt20u/production/36c4da4283252fda5dce13c46ea3e06a5312218c-50x51.png?auto=format",
-    title: "Simplify the complex",
-    description:
-      " Simplify complex processes and optimise your financial operations by leveraging the power of AI, Blockchain, Cloud Computing, and Big Data.",
-  },
-  {
-    id: 3,
-    image_path:
-      "https://cdn.sanity.io/images/6jywt20u/production/1966d94a29ffe1673fd510327ba0eb409f82b680-50x50.svg?auto=format",
-    title: "Cutting-edge tech",
-    description:
-      "We seamlessly combine cutting-edge technologies, resulting in an unparalleled fintech experience for financial institutions.",
-  },
-];
+import StatsIncrement from "../components/StatsIncrement";
+import PhilosophySection from "./PhilosophySection";
+import HeroSection from "./HeroSection";
+import Companies from "@/components/Companies";
 
 export default function Home() {
   return (
     <main>
-      {/* Hero Section */}
+      {/* Header */}
       <Header />
-
-      <section className="hero_section lg:h-[max(620px,_calc(92vh-49px))] h-auto relative text-white overflow-hidden pt-[30%] md:pt-[20%] lg:pt-0 max-lg:pb-[15%] lg:bg-clip-hero-container">
-        <div className="wrapper relative z-10 h-full md:flex md:items-center md:justify-center">
-          <div className="h-fit lg:flex-[65] xl:flex-[75]">
-            <div className="max-w-2xl lg:space-y-sm space-y-[16px] mb-[32px]">
-              <h1 className="lg:max-w-max lg:whitespace-pre-line lg:text-[80px] font-Montserrat text-res-head-1 lg:text-head-1 text-white">
-                Embrace the future of finance
-              </h1>
-              <h5 className="!text-white max-w-[37rem] lg:mr-5 text-res-head-5 lg:text-head-5 font-Montserrat">
-                Reimagine financial services with AnyTech&apos;s open platform,
-                distributed banking solution that powers transformation
-              </h5>
-            </div>
-            <div className="flex lg:flex-row flex-col lg:space-x-[16px] space-y-4 lg:space-y-0 w-full lg:mb-0 mb-md max-w-xl">
-              <Button href="/en/contact-us" title=" Reach Out to Us" />
-            </div>
-          </div>
-
-          <div className="lg:flex-[35] xl:flex-[25] lg:block hidden"></div>
-        </div>
-        <HeroImage />
-        <HeroSVG />
-      </section>
-
-      <div className="block lg:hidden translate-y-[-20%] -mb-[10%]">
-        <figure
-          style={{
-            clipPath: "polygon(0 15%, 100% 0, 100% 85%, 0% 100%)",
-          }}
-          className="object-cover overflow-hidden"
-        >
-          <Image
-            src="/assets/backgrounds/hero_image.jpg"
-            width="7952"
-            height="5304"
-            className="h-full w-full object-cover scale-150"
-            sizes="100vw"
-            alt="background image"
-          />
-        </figure>
-      </div>
+      {/* Hero Section */}
+      <HeroSection />
 
       <section className="wrapper mt-[62px]">
         <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[15px] relative">
@@ -404,72 +245,8 @@ export default function Home() {
         </defs>
       </svg>
 
-      <section className="wrapper md:mb-[128px]">
-        <div className="md:space-y-[24px] space-y-[16px] text-center">
-          <h6 className="lg:text-head-6 text-res-head-6 uppercase text-blue-main font-Montserrat">
-            OUR PHILOSOPHY
-          </h6>
-          <h2 className="whitespace-pre-line font-Montserrat text-res-head-2 text-blue-text lg:text-head-2">
-            Human-centred innovation
-          </h2>
-        </div>
-
-        <figure className="pt-[32px] hidden md:block">
-          <Image
-            src="https://cdn.sanity.io/images/6jywt20u/production/2d90adc3456764f98e38ce40b5ea7d7f52fd4ce1-2206x727.png?auto=format"
-            width="2206"
-            height="727"
-            sizes="95vw"
-            className="h-full w-full"
-            alt="Image"
-            loading="lazy"
-          />
-        </figure>
-
-        <figure className="py-[32px] md:hidden">
-          <Image
-            src="https://cdn.sanity.io/images/6jywt20u/production/50bc481601f8adb912da12788f7d0143eb5b5eb3-1710x1965.png?auto=format"
-            width="1710"
-            height="1965"
-            sizes="95vw"
-            className="h-full w-full "
-            alt="Image"
-          />
-        </figure>
-
-        <ul className="flex overflow-x-auto sm:grid grid-cols-2 lg:grid-cols-3 gap-[30px] scroll-swiper pt-[30px]">
-          {philosophies.map((philosophy, index) => (
-            <motion.li
-              key={philosophy.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.2,
-              }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="z-20 min-h-full md:space-y-[24px] space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm min-w-[80%]"
-            >
-              <figure className="w-fit rounded-full">
-                <Image
-                  src={philosophy.image_path}
-                  width="50"
-                  height="50"
-                  sizes="50px"
-                  alt={philosophy.title}
-                  className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]"
-                  loading="lazy"
-                />
-              </figure>
-              <h4 className="undefined font-Montserrat text-blue-text text-res-head-4 lg:text-head-4">
-                {philosophy.title}
-              </h4>
-              <p className="text-body-1">{philosophy.description}</p>
-            </motion.li>
-          ))}
-        </ul>
-      </section>
+      {/* Our Philosphy Section */}
+      <PhilosophySection />
 
       <svg
         className="md:hidden max-h-[240px] md:my-sm my-lg w-full min-h-[60px]"
@@ -544,26 +321,8 @@ export default function Home() {
             TRUSTED BY THE BEST
           </h6>
 
-          <StatsSection />
-
-          <div className="mt-xl flex sm:grid grid-cols-3 gap-x-16 gap-y-[34px] lg:grid-cols-5 overflow-x-auto sm:overflow-x-hidden scroll-swiper">
-            {companies.map((company) => (
-              <Image
-                key={company.id}
-                src={company.logo_url}
-                width="603"
-                height="414"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-                className="max-w-[170px] sm:max-w-max"
-                alt={company.name}
-                title={company.name}
-              />
-            ))}
-          </div>
+          <StatsIncrement />
+          <Companies />
         </div>
       </section>
 

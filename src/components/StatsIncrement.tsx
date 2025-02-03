@@ -9,7 +9,7 @@ const stats = [
   { id: 3, value: 200, suffix: "m", label: "Customers Each" },
 ];
 
-export default function StatsSection() {
+export default function StatsIncrement() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
