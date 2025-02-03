@@ -6,7 +6,7 @@ const HeroImage = () => {
     <motion.div
       initial={{ x: "20%" }}
       animate={{ x: 0 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
       className="hidden lg:block absolute top-0 xl:left-[35%] xl:w-[65%] left-1/2 lg:w-[56%] h-full bg-clip-hero-image pointer-events-none"
     >
       <figure
