@@ -7,6 +7,7 @@ import HeroSVG from "@/components/HeroSVG";
 import TabComponent from "@/components/TabsComponent";
 import Image from "next/image";
 import StatsSection from "./StatsSection";
+import { motion } from "framer-motion";
 
 const companies = [
   {
@@ -101,6 +102,33 @@ const companies = [
   },
 ];
 
+const philosophies = [
+  {
+    id: 1,
+    image_path:
+      "https://cdn.sanity.io/images/6jywt20u/production/28029da89383a59e47420ee46b7e4c364051b45f-50x50.svg?auto=format",
+    title: "Full-suite solutions",
+    description:
+      "Experience the ease of integration across various banking and payment functions with our comprehensive suite of solutions.",
+  },
+  {
+    id: 2,
+    image_path:
+      "https://cdn.sanity.io/images/6jywt20u/production/36c4da4283252fda5dce13c46ea3e06a5312218c-50x51.png?auto=format",
+    title: "Simplify the complex",
+    description:
+      " Simplify complex processes and optimise your financial operations by leveraging the power of AI, Blockchain, Cloud Computing, and Big Data.",
+  },
+  {
+    id: 3,
+    image_path:
+      "https://cdn.sanity.io/images/6jywt20u/production/1966d94a29ffe1673fd510327ba0eb409f82b680-50x50.svg?auto=format",
+    title: "Cutting-edge tech",
+    description:
+      "We seamlessly combine cutting-edge technologies, resulting in an unparalleled fintech experience for financial institutions.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -111,7 +139,7 @@ export default function Home() {
         <div className="wrapper relative z-10 h-full md:flex md:items-center md:justify-center">
           <div className="h-fit lg:flex-[65] xl:flex-[75]">
             <div className="max-w-2xl lg:space-y-sm space-y-[16px] mb-[32px]">
-              <h1 className="lg:max-w-max lg:whitespace-pre-line lg:text-[80px] font-Montserrat text-res-head-1 text-head-1 text-white">
+              <h1 className="lg:max-w-max lg:whitespace-pre-line lg:text-[80px] font-Montserrat text-res-head-1 lg:text-head-1 text-white">
                 Embrace the future of finance
               </h1>
               <h5 className="!text-white max-w-[37rem] lg:mr-5 text-res-head-5 lg:text-head-5 font-Montserrat">
@@ -410,79 +438,36 @@ export default function Home() {
         </figure>
 
         <ul className="flex overflow-x-auto sm:grid grid-cols-2 lg:grid-cols-3 gap-[30px] scroll-swiper pt-[30px]">
-          <li
-            className="z-20 min-h-full md:space-y-[24px] space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm min-w-[80%]"
-            // className="translate-y-[20%] opacity-0 z-20 h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm "
-            // style="transform: translateY(var(--motion-translateY)); --motion-translateY: 0px; opacity: 1;"
-          >
-            <figure className="w-fit rounded-full">
-              <Image
-                src="https://cdn.sanity.io/images/6jywt20u/production/28029da89383a59e47420ee46b7e4c364051b45f-50x50.svg?auto=format"
-                width="50"
-                height="50"
-                sizes="50px"
-                alt="Full suite solutions"
-                className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]"
-                loading="lazy"
-              />
-            </figure>{" "}
-            <h4 className="undefined font-Montserrat text-blue-text text-res-head-4 lg:text-head-4">
-              Full-suite solutions
-            </h4>{" "}
-            <p className="text-body-1">
-              Experience the ease of integration across various banking and
-              payment functions with our comprehensive suite of solutions.
-            </p>
-          </li>
-          <li
-            className="z-20 min-h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm min-w-[80%]"
-            // className="translate-y-[20%] opacity-0 z-20 h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm "
-            // style="transform: translateY(var(--motion-translateY)); --motion-translateY: 0px; opacity: 1;"
-          >
-            <figure className="w-fit rounded-full">
-              <Image
-                src="https://cdn.sanity.io/images/6jywt20u/production/36c4da4283252fda5dce13c46ea3e06a5312218c-50x51.png?auto=format"
-                width="50"
-                height="51"
-                sizes="50px"
-                alt="Simplify the complex"
-                className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]"
-                loading="lazy"
-              />
-            </figure>{" "}
-            <h4 className="undefined font-Montserrat text-blue-text text-res-head-4 lg:text-head-4">
-              Simplify the complex
-            </h4>{" "}
-            <p className="text-body-1">
-              Simplify complex processes and optimise your financial operations
-              by leveraging the power of AI, Blockchain, Cloud Computing, and
-              Big Data.
-            </p>
-          </li>
-          <li
-            className="z-20 min-h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm min-w-[80%]"
-            // className="translate-y-[20%] opacity-0 z-20 h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm "
-            // style="transform: translateY(var(--motion-translateY)); --motion-translateY: 0px; opacity: 1;"
-          >
-            <figure className="w-fit rounded-full">
-              <Image
-                src="https://cdn.sanity.io/images/6jywt20u/production/1966d94a29ffe1673fd510327ba0eb409f82b680-50x50.svg?auto=format"
-                width="50"
-                height="50"
-                sizes="50px"
-                alt="Cutting-edge tech"
-                className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]"
-                loading="lazy"
-              />
-            </figure>{" "}
-            <h4 className="undefined font-Montserrat text-blue-text text-res-head-4 lg:text-head-4">
-              Cutting-edge tech
-            </h4>{" "}
-            <p className="text-body-1">
-              We seamlessly combine cutting-edge technologies, resulting in an
-              unparalleled fintech experience for financial institutions.
-            </p>
-          </li>
+          {philosophies.map((philosophy, index) => (
+            <motion.li
+              key={philosophy.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.2,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="z-20 min-h-full md:space-y-[24px] space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm min-w-[80%]"
+            >
+              <figure className="w-fit rounded-full">
+                <Image
+                  src={philosophy.image_path}
+                  width="50"
+                  height="50"
+                  sizes="50px"
+                  alt={philosophy.title}
+                  className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]"
+                  loading="lazy"
+                />
+              </figure>
+              <h4 className="undefined font-Montserrat text-blue-text text-res-head-4 lg:text-head-4">
+                {philosophy.title}
+              </h4>
+              <p className="text-body-1">{philosophy.description}</p>
+            </motion.li>
+          ))}
         </ul>
       </section>
 
